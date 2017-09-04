@@ -1,6 +1,7 @@
 from datetime import date
 
 from django.http import Http404
+# django.test.TestCase inherits from the standard library unittest.TestCase.
 from django.test import Client, TestCase
 
 from .models import Talk, Session

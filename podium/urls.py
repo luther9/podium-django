@@ -17,10 +17,16 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from . import views
 
-
+# Django uses urlpatterns for routing. The first argument to url() is a regular
+# expression refering to the requested URL. The second argument is either a view
+# or a reference to an app within the website. 'name' is a handle that other
+# Python code can use to refer to the URL pattern,
 urlpatterns = [
 
+    # This refers to a special website where an admin can edit the database.
     url(r'^admin/', admin.site.urls),
+    # This refers to another urls.py file whose regexes are matched against the
+    # part after 'talks/'.
     url(r'^talks/', include('podium.talks.urls')),
     url(r'^$', views.index, name='index'),
 
